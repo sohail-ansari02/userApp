@@ -1,0 +1,12 @@
+<h1>create user</h1>
+<a routerLink=""> users list </a>
+<form [formGroup]="form">
+  <input type="text" formControlName="name" placeholder="enter your name" />
+  <br>
+  <input type="text" formControlName="job" placeholder="enter your job" />
+
+  <button type="button" (click)="onSubmit()" [disabled]="form.invalid">
+    create
+  </button>
+</form>
+{{ form.value | json }}

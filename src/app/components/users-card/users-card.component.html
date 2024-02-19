@@ -1,0 +1,12 @@
+@if (user) {
+
+<div class="user-card">
+  <img
+    [src]="user.avatar"
+    alt="{{ user.first_name }} {{ user.last_name }}'s avatar"
+    class="user-avatar"
+  />
+  <p>{{ user.first_name }} {{ user.last_name }}</p>
+  <p>{{ user.email }}</p>
+</div>
+}

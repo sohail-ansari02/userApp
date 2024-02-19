@@ -1,0 +1,19 @@
+<h1>{{ "all users" | titlecase }}</h1>
+<a routerLink="create"> create user </a>
+<p>NOTE: selecte user to update data</p>
+@if (selectedUser) {
+<form [formGroup]="updateForm">
+  <legend>update selected user</legend>
+  <input type="text" placeholder="name" formControlName="name" /> <br />
+  <input type="text" placeholder="job" formControlName="job" /> <br />
+  <button (click)="onUpdate()" type="button">Update {{ updateForm.value.name }}</button>
+</form>
+}
+<p>
+  selected data is : <code>{{ selectedUser | json }}</code>
+</p>
+<div class="list">
+  @for (user of users; track $index) {
+  <app-users-card (click)="getInfo(user.id)" [user]="user"></app-users-card>
+  }
+</div>
